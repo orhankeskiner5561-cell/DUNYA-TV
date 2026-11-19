@@ -1,5 +1,5 @@
 export function playbackReport(channel, attempts) {
-  return JSON.stringify({version:"1.1",channel,time:new Date().toISOString(),attempts:attempts.map(a=>({source:a.source?new URL(a.source).origin+new URL(a.source).pathname:null,http:a.http||null,type:a.type||null,detail:a.detail||null,message:explain(a)}))},null,2);
+  return JSON.stringify({version:"1.2",channel,time:new Date().toISOString(),attempts:attempts.map(a=>({source:a.source?new URL(a.source).origin+new URL(a.source).pathname:null,http:a.http||null,type:a.type||null,detail:a.detail||null,message:explain(a)}))},null,2);
 }
 export function explain(a) {
   if(a.http===403)return "Erişim reddedildi";
